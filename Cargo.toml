@@ -1,8 +1,42 @@
-[package]
-name = "datalite"
+[workspace.package]
 version = "0.1.0"
 edition = "2021"
+keywords = ["sql", "database", "OLAP"]
+license = "Apache-2.0"
+repository = "https://github.com/datafreelab/datalite"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
+[profile.dev]
+lto = 'off'
+
+[profile.release]
+debug = true
+lto = 'thin'
+
+[profile.bench]
+opt-level = 3
+debug = false
+codegen-units = 1
+lto = 'thin'
+incremental = false
+debug-assertions = false
+overflow-checks = false
+rpath = false
+
+[workspace]
+members = [
+    "benchmarks",
+    "src/catalog",
+]
+
+[workspace.dependencies]
+clap = { version = "4.0", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+snafu = { version = "0.7", features = ["backtraces"] }
+tokio = { version = "1.24.2", features = ["full"] }
+tokio-util = "0.7"
+tonic = { version = "0.8", features = ["tls"] }
+uuid = { version = "1", features = ["serde", "v4", "fast-rng"] }
