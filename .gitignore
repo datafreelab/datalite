@@ -1,0 +1,67 @@
+# IntelliJ project files
+.idea/*
+
+# visual studio code files
+.vscode
+.dir-locals.el
+.bash_history
+.mysql_history
+
+# Rust
+target/
+
+# OS related
+### MacOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# profile
+flamegraph.*
+perf.*
+
+# tests
+*.stderr
+*.stdout
+*.out
+*.err
+*.error
+*.swp
+_local_fs/
+**/_meta*/
+stateless_test_data/
+**/_logs*/
+_data/
+_cache/
+_tmp/
+tls/certs/
+.databend/
+checksums.txt
+distro/
+test/
+
+# fuzz
+hfuzz_target/
+hfuzz_workspace/
+
+# for tests in mac
+*.stderr-e
+*.stdout-e
+tests/perfs/*-result.json
+docker/build-tool/dev_setup.sh
+docker/build-tool/rust-toolchain.toml
+
+# python
+venv/
+*.pyc
+__pycache__/
+
+*.zip
+
+# tpch data set
+benchmark/tpch/data
+# clickbench results
+benchmark/clickbench/results
+
+# direnv test files
+.envrc
