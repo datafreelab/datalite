@@ -14,7 +14,7 @@ name: SLSA generic generator
 on:
   workflow_dispatch:
   release:
-    types: [created]
+    types: [ created ]
 
 jobs:
   build:
@@ -32,9 +32,9 @@ jobs:
       # ========================================================
       - name: Build artifacts
         run: |
-            # These are some amazing artifacts.
-            echo "artifact1" > artifact1
-            echo "artifact2" > artifact2
+          # These are some amazing artifacts.
+          echo "artifact1" > artifact1
+          echo "artifact2" > artifact2
 
       # ========================================================
       #
@@ -55,7 +55,7 @@ jobs:
           echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
-    needs: [build]
+    needs: [ build ]
     permissions:
       actions: read   # To read the workflow path.
       id-token: write # To sign the provenance.
