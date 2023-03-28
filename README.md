@@ -1,4 +1,6 @@
 # datalite
-## install 
+
+## install
+
 cargo install typos-cli
 cargo install taplo-cli
