@@ -1,5 +1,5 @@
 use enum_as_inner::EnumAsInner;
-use parse_display::{Display, FromStr};
+use parse_display::{Display, FromStr, ParserError};
 use serde::{Deserialize, Serialize};
 
 use self::type_numbers::*;
@@ -37,7 +37,17 @@ pub enum DataType {
     #[display("jsonb")]
     #[from_str(regex = "(?i)^jsonb$")]
     Jsonb,
+    #[display("list<{datatype}>")]
+    List { datatype: Box<DataType> },
 
+}
+
+impl std::str::FromStr for Box<DataType> {
+    type Err = ParserError;
+
+    fn from_str(s: &str) -> Result<Self, ()> {
+        Ok(Box::new(DataType::from_str(s)?))
+    }
 }
 
 #[cfg(test)]

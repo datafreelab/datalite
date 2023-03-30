@@ -14,7 +14,7 @@ pub enum DataTypeNumber {
     #[display("smallint unsigned")]
     #[from_str(regex = "(?i)^smallint unsigned$|^int2 unsigned$")]
     UInt16,
-    #[display("integer unsigned")]
+    #[display("int unsigned")]
     #[from_str(regex = "(?i)^integer unsigned$|^int unsigned$|^int4 unsigned$")]
     UInt32,
     #[display("bigint unsigned")]
@@ -26,7 +26,7 @@ pub enum DataTypeNumber {
     #[display("smallint")]
     #[from_str(regex = "(?i)^smallint$|^int2$")]
     Int16,
-    #[display("integer")]
+    #[display("int")]
     #[from_str(regex = "(?i)^integer$|^int$|^int4$")]
     Int32,
     #[display("bigint")]
