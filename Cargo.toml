@@ -27,6 +27,7 @@ rpath = false
 [workspace]
 members = [
     "benchmarks",
+    "src/common/error",
     "src/catalog",
     "src/datatypes"
 ]
