@@ -5,6 +5,7 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
+common-error = { path = "../common/error" }
 clap.workspace = true
 tokio.workspace = true
 parse-display.workspace = true
@@ -12,3 +13,4 @@ enum-as-inner.workspace = true
 ordered-float.workspace = true
 serde.workspace = true
 snafu.workspace = true
+
