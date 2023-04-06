@@ -1,10 +1,6 @@
-use enum_as_inner::EnumAsInner;
-use ordered_float::OrderedFloat;
 use parse_display::{Display, FromStr};
 use serde::{Deserialize, Serialize};
 
-pub type F32 = OrderedFloat<f32>;
-pub type F64 = OrderedFloat<f64>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, FromStr, Display)]
 pub enum DataTypeNumber {
@@ -40,25 +36,11 @@ pub enum DataTypeNumber {
     Float64,
 }
 
-#[derive(Clone, Copy, PartialEq, Eq, Serialize, Deserialize, EnumAsInner)]
-pub enum ScalarNumber {
-    UInt8(u8),
-    UInt16(u16),
-    UInt32(u32),
-    UInt64(u64),
-    Int8(i8),
-    Int16(i16),
-    Int32(i32),
-    Int64(i64),
-    Float32(F32),
-    Float64(F64),
-}
-
 #[cfg(test)]
 mod tests {
     use std::str::FromStr;
+    use crate::types::numbers::DataTypeNumber;
 
-    use crate::types::type_numbers::DataTypeNumber;
 
     #[test]
     fn test_data_type_from_str() {
