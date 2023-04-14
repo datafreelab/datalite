@@ -1,4 +1,5 @@
 #![feature(trait_alias)]
+
 use crate::errors::BoxedError;
 
 pub mod errors;
